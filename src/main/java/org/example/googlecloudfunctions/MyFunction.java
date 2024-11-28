@@ -12,13 +12,13 @@ public class MyFunction {
 
     private static final String PROJECT_ID = "karuns-training-and-learning";
     private static final String LOCATION = "us-central1";
-    private static final String IMAGE_URI = "gs://karuns-test-bucket/IMG_6116.JPEG";
+    private static final String IMAGE_URI = "gs://karuns-test-bucket/IMG_6706.JPEG";
 
     public static void main(String[] args) throws Exception {
         try (VertexAI vertexAi = new VertexAI(PROJECT_ID, LOCATION);) {
             GenerationConfig generationConfig = GenerationConfig.newBuilder().
                     setMaxOutputTokens(8192).
-                    setTemperature(1).
+                    setTemperature(0).
                     setCandidateCount(1).
                     build();
             // Vision model must be used for multi-modal input
@@ -30,7 +30,7 @@ public class MyFunction {
             GenerateContentResponse captionResponse =
                     model.generateContent(ContentMaker.fromMultiModalData(
                             PartMaker.fromMimeTypeAndData("image/jpeg", IMAGE_URI),
-                            "Create a caption for the photo. Also describe any clothing worn by the main person in the photo as part of the caption. Exclude any people in the background from the caption."
+                            "Create a caption for the photo. Also describe any clothing worn by the main person in the photo as part of the caption. Describe the main people in the photo as part of the caption. Exclude any people in the background from the caption."
                     ));
             System.out.println(captionResponse);
             // Do something with the ResponseStream, which is an iterable.
