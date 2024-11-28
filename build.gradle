@@ -12,6 +12,7 @@ dependencies {
     implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
     implementation 'io.quarkus:quarkus-google-cloud-functions'
     implementation 'io.quarkus:quarkus-arc'
+    implementation 'com.google.cloud:google-cloud-vertexai:1.14.0'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.quarkus:quarkus-test-google-cloud-functions'
     testImplementation 'io.rest-assured:rest-assured'
