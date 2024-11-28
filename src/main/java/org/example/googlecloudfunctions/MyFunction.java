@@ -27,12 +27,12 @@ public class MyFunction {
                     setVertexAi(vertexAi).
                     setGenerationConfig(generationConfig).
                     build();
-            GenerateContentResponse response =
+            GenerateContentResponse captionResponse =
                     model.generateContent(ContentMaker.fromMultiModalData(
                             PartMaker.fromMimeTypeAndData("image/jpeg", IMAGE_URI),
                             "Create a caption for the photo"
                     ));
-            System.out.println(response);
+            System.out.println(captionResponse);
             // Do something with the ResponseStream, which is an iterable.
         } catch (Exception e1) {
             e1.printStackTrace();
