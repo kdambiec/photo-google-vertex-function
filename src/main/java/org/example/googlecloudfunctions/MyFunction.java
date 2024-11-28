@@ -30,7 +30,7 @@ public class MyFunction {
             GenerateContentResponse captionResponse =
                     model.generateContent(ContentMaker.fromMultiModalData(
                             PartMaker.fromMimeTypeAndData("image/jpeg", IMAGE_URI),
-                            "Create a caption for the photo. Also describe any clothing worn by the main person in the photo  as part of the caption."
+                            "Create a caption for the photo. Also describe any clothing worn by the main person in the photo as part of the caption. Exclude any people in the background from the caption."
                     ));
             System.out.println(captionResponse);
             // Do something with the ResponseStream, which is an iterable.
